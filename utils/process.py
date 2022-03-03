@@ -183,8 +183,12 @@ class Processor(object):
         if if_dev:
             ss, pred_slot, real_slot, pred_intent, real_intent = self.prediction(
                 self.__model, self.__dataset, "dev", test_batch, args)
+            ss, pred_slot, pred_intent = self.predict(
+                self.__model, self.__dataset, "dev", test_batch, args)
         else:
             ss, pred_slot, real_slot, pred_intent, real_intent = self.prediction(
+                self.__model, self.__dataset, "test", test_batch, args)
+            ss, pred_slot, pred_intent = self.prediction(
                 self.__model, self.__dataset, "test", test_batch, args)
 
         num_intent = len(self.__dataset.intent_alphabet)
@@ -306,6 +310,54 @@ class Processor(object):
                 writer.writelines("\n")
 
         return all_token, pred_slot, real_slot, pred_intent, real_intent
+
+    @staticmethod
+    def predict(model, dataset, mode, batch_size, args):
+        print("PREDICT FUNCTION STARTS: ")
+
+        if mode == "dev":
+            dataloader = dataset.batch_delivery('dev', batch_size=batch_size, shuffle=False, is_digital=False)
+        elif mode == "test":
+            dataloader = dataset.batch_delivery('test', batch_size=batch_size, shuffle=False, is_digital=False)
+        else:
+            raise Exception("Argument error! mode belongs to {\"dev\", \"test\"}.")
+
+        pred_slot = []
+        pred_intent = []
+        all_token = []
+        for text_batch, slot_batch, intent_batch in tqdm(dataloader, ncols=50):
+            padded_text, [sorted_slot, sorted_intent], seq_lens = dataset.add_padding(
+                text_batch, [(slot_batch, False), (intent_batch, False)],
+                digital=False
+            )
+        
+            all_token.extend([pt[:seq_lens[idx]] for idx, pt in enumerate(padded_text)])
+
+            digit_text = dataset.word_alphabet.get_index(padded_text)
+            var_text = torch.LongTensor(digit_text)
+            max_len = np.max(seq_lens)
+            if args.gpu:
+                var_text = var_text.cuda()
+            slot_idx, intent_idx = model(var_text, seq_lens, n_predicts=1)
+            nested_slot = Evaluator.nested_list([list(Evaluator.expand_list(slot_idx))], seq_lens)[0]
+            pred_slot.extend(dataset.slot_alphabet.get_instance(nested_slot))
+            intent_idx_ = [[] for i in range(len(digit_text))]
+            for item in intent_idx:
+                intent_idx_[item[0]].append(item[1])
+            intent_idx = intent_idx_
+            pred_intent.extend(dataset.intent_alphabet.get_instance(intent_idx))
+        # if 'MixSNIPS' in args.data_dir or 'MixATIS' in args.data_dir or 'DSTC' in args.data_dir:
+        [p_intent.sort() for p_intent in pred_intent]
+        with open(os.path.join(args.save_dir, 'predictToken.txt'), "w", encoding="utf8") as writer:
+            idx = 0
+            for line, slots in zip(all_token, pred_slot):
+                for c, sl in zip(line, slots):
+                    writer.writelines(
+                        str(sl) + " " + c + " " + sl + " " + "\n")
+                idx = idx + len(line)
+                writer.writelines("\n")
+
+        return all_token, pred_slot, pred_intent
 
 
 class Evaluator(object):
