@@ -230,25 +230,6 @@ class DatasetManager(object):
     def slot_forcing_rate(self):
         return self.__args.slot_forcing_rate
 
-    def show_summary(self):
-        """
-        :return: show summary of dataset, training parameters.
-        """
-
-        print("Training parameters are listed as follows:\n")
-
-        print('\tnumber of train sample:                    {};'.format(len(self.__text_word_data['train'])))
-        print('\tnumber of dev sample:                      {};'.format(len(self.__text_word_data['dev'])))
-        print('\tnumber of test sample:                     {};'.format(len(self.__text_word_data['test'])))
-        print('\tnumber of epoch:						    {};'.format(self.num_epoch))
-        print('\tbatch size:							    {};'.format(self.batch_size))
-        print('\tlearning rate:							    {};'.format(self.learning_rate))
-        print('\trandom seed:							    {};'.format(self.__args.random_state))
-        print('\trate of l2 penalty:					    {};'.format(self.l2_penalty))
-        print('\trate of dropout in network:                {};'.format(self.__args.dropout_rate))
-        print('\tteacher forcing rate(slot)		    		{};'.format(self.slot_forcing_rate))
-
-        print("\nEnd of parameters show. Save dir: {}.\n\n".format(self.save_dir))
 
     def quick_build(self):
         """

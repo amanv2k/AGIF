@@ -1,3 +1,7 @@
+
+
+
+
 # -*- coding: utf-8 -*-#
 
 import os, json, random
@@ -7,6 +11,7 @@ from models.module import ModelManager
 from utils.loader import DatasetManager
 from utils.process import Processor
 from utils.config import *
+from priority import priority
 
 if __name__ == "__main__":
 
@@ -36,15 +41,14 @@ if __name__ == "__main__":
     # Instantiate a dataset object.
     dataset = DatasetManager(args)
     dataset.quick_build()
-    dataset.show_summary()
 
     # Instantiate a network model object.
     model = ModelManager(
         args, len(dataset.word_alphabet),
         len(dataset.slot_alphabet),
-        len(dataset.intent_alphabet)
+        len(dataset.intent_alphabet),
+        # args.save_dir
     )
-    model.show_summary()
 
     # To train and evaluate the models.
     process = Processor(dataset, model, args)
@@ -53,8 +57,8 @@ if __name__ == "__main__":
         os.path.join(args.save_dir, "model/model.pkl"),
         dataset,
         args.batch_size, len(dataset.intent_alphabet), args=args)
-    print('\nAccepted performance: ' + str(result) + " at test dataset;\n")
     if not os.path.exists(args.log_dir):
         os.makedirs(args.log_dir)
     with open(os.path.join(args.log_dir, args.log_name), 'w') as fw:
         fw.write(str(best_epoch) + ',' + str(result))
+    priority()

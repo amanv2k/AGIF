@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-#
 import argparse
 import torch
+import warnings
 
 parser = argparse.ArgumentParser(description='An Adaptive Graph-Interactive Framework for Joint Multiple Intent Detection and Slot Filling')
 
@@ -44,4 +45,7 @@ parser.add_argument('--attention_output_dim', '-aod', type=int, default=128)
 
 args = parser.parse_args()
 args.gpu = args.gpu and torch.cuda.is_available()
-print(str(vars(args)))
+#print(str(vars(args)))
+warnings.simplefilter("ignore")
+
+
