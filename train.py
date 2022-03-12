@@ -1,7 +1,3 @@
-
-
-
-
 # -*- coding: utf-8 -*-#
 
 import os, json, random
@@ -57,8 +53,12 @@ if __name__ == "__main__":
         os.path.join(args.save_dir, "model/model.pkl"),
         dataset,
         args.batch_size, len(dataset.intent_alphabet), args=args)
+    priority()
     if not os.path.exists(args.log_dir):
         os.makedirs(args.log_dir)
     with open(os.path.join(args.log_dir, args.log_name), 'w') as fw:
         fw.write(str(best_epoch) + ',' + str(result))
-    priority()
+    
+    # getinput='y'
+    # while (getinput!='n'):
+        
