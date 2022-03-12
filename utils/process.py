@@ -311,6 +311,8 @@ class Processor(object):
             dataloader = dataset.batch_delivery('dev', batch_size=batch_size, shuffle=False, is_digital=False)
         elif mode == "test":
             dataloader = dataset.batch_delivery('test', batch_size=batch_size, shuffle=False, is_digital=False)
+        elif mode == "userinput":
+            dataloader = dataset.batch_delivery('userinput', batch_size=batch_size, shuffle=False, is_digital=False)
         else:
             raise Exception("Argument error! mode belongs to {\"dev\", \"test\"}.")
 

@@ -239,10 +239,12 @@ class DatasetManager(object):
         train_path = os.path.join(self.__args.data_dir, 'train.txt')
         dev_path = os.path.join(self.__args.data_dir, 'dev.txt')
         test_path = os.path.join(self.__args.data_dir, 'test.txt')
+        input_test_path = os.path.join(self.__args.data_dir, 'userinput.txt')
 
         self.add_file(train_path, 'train', if_train_file=True)
         self.add_file(dev_path, 'dev', if_train_file=False)
         self.add_file(test_path, 'test', if_train_file=False)
+        self.add_file(input_test_path, 'userinput', if_train_file=False)
 
         # Check if save path exists.
         if not os.path.exists(self.save_dir):

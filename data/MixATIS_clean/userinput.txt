@@ -1,0 +1,16 @@
+get
+the
+fare
+of
+flight
+from
+texas
+to
+washington
+and
+get
+the
+capacity
+of
+the
+flight

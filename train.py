@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-#
 
-import os, json, random
+import os, json, random, re
 import numpy as np
 import torch
 from models.module import ModelManager
@@ -58,7 +58,18 @@ if __name__ == "__main__":
         os.makedirs(args.log_dir)
     with open(os.path.join(args.log_dir, args.log_name), 'w') as fw:
         fw.write(str(best_epoch) + ',' + str(result))
-    
-    # getinput='y'
-    # while (getinput!='n'):
-        
+    print(args.save_dir)
+    getinput='y'
+    while (getinput!='n'):
+        q=input("Enter the query: ")
+        qry=re.findall(r"[A-Za-z]+|\S", q)
+        f = open(os.path.join(args.data_dir, "userinput.txt"), "w")
+        for word in qry:
+            f.write(word+'\n')
+        f.close()
+
+        getinput=input("choice: ")
+
+    # inputdataset = DatasetManager()
+    # inputdataset.quick_build()
+    process.predict(model, dataset, 'userinput', args.batch_size, args)

@@ -41,7 +41,7 @@ True the O O
 False limousine B-city_name B-transport_type
 True service O O
 True in O O
-True boston B-city_name B-city_name
+False boston B-fromloc.city_name B-city_name
 
 True what O O
 True is O O
@@ -49,7 +49,7 @@ True the O O
 True capacity O O
 True of O O
 True the O O
-False 73s O B-aircraft_code
+False 73s B-city_name B-aircraft_code
 True , O O
 True what O O
 True day O O
@@ -110,7 +110,7 @@ True list O O
 True ground O O
 True transportation O O
 True in O O
-True baltimore B-city_name B-city_name
+False baltimore B-fromloc.city_name B-city_name
 True and O O
 True what O O
 False meals O B-meal
@@ -123,11 +123,11 @@ True which O O
 False al B-city_name O
 True arrives O O
 True in O O
-False san O B-toloc.city_name
-False francisco B-fromloc.city_name I-toloc.city_name
-False at I-fromloc.city_name O
-False 950 I-depart_time.time B-arrive_time.time
-False am I-class_type I-arrive_time.time
+False san B-fromloc.city_name B-toloc.city_name
+False francisco I-fromloc.city_name I-toloc.city_name
+True at O O
+False 950 B-fromloc.city_name B-arrive_time.time
+False am I-fromloc.city_name I-arrive_time.time
 
 True what O O
 False meals O B-meal
@@ -136,8 +136,8 @@ True served O O
 True on O O
 False american O B-airline_name
 True flight O O
-False 665 B-airline_name B-flight_number
-False 673 I-airline_name I-flight_number
+False 665 B-city_name B-flight_number
+False 673 O I-flight_number
 True from O O
 True milwaukee B-fromloc.city_name B-fromloc.city_name
 True to O O
@@ -146,12 +146,12 @@ True and O O
 True also O O
 True how O O
 True many O O
-False canadian O B-airline_name
+False canadian B-fromloc.city_name B-airline_name
 False airlines O I-airline_name
 False international O I-airline_name
 True flights O O
 True use O O
-False j31 B-fromloc.city_name B-aircraft_code
+False j31 O B-aircraft_code
 
 True show O O
 True me O O
@@ -174,7 +174,7 @@ True can O O
 True an O O
 False l1011 O B-aircraft_code
 True aircraft O O
-True hold O O
+False hold B-city_name O
 
 True what O O
 True day O O
@@ -209,7 +209,7 @@ True list O O
 True the O O
 True distance O O
 True in O O
-True miles O O
+False miles B-city_name O
 True from O O
 False san B-fromloc.city_name B-fromloc.airport_name
 False francisco I-fromloc.city_name I-fromloc.airport_name
@@ -218,7 +218,7 @@ True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
 True san B-toloc.city_name B-toloc.city_name
 True francisco I-toloc.city_name I-toloc.city_name
-True downtown O O
+False downtown I-toloc.city_name O
 
 True tell O O
 True me O O
@@ -290,7 +290,7 @@ False airlines O I-airline_name
 False international O I-airline_name
 True flights O O
 True use O O
-False j31 B-fromloc.city_name B-aircraft_code
+False j31 O B-aircraft_code
 
 True what O O
 True cities O O
@@ -326,7 +326,7 @@ False limousine O B-transport_type
 True service O O
 True in O O
 False los O B-city_name
-False angeles O I-city_name
+False angeles B-city_name I-city_name
 
 True what O O
 True cities O O
@@ -357,11 +357,11 @@ True on O O
 False dl B-city_name B-airline_code
 False 468 O B-flight_number
 True which O O
-True al O O
+False al B-city_name O
 True arrives O O
 True in O O
-False san O B-toloc.city_name
-False francisco B-fromloc.city_name I-toloc.city_name
+False san B-fromloc.city_name B-toloc.city_name
+False francisco I-fromloc.city_name I-toloc.city_name
 True at O O
 False 950 B-fromloc.city_name B-arrive_time.time
 False am I-fromloc.city_name I-arrive_time.time
@@ -384,7 +384,7 @@ True capacity O O
 True on O O
 True the O O
 True aircraft O O
-False 733 O B-aircraft_code
+False 733 B-city_name B-aircraft_code
 True and O O
 True also O O
 True list O O
@@ -402,7 +402,7 @@ True in O O
 True miles O O
 True from O O
 False boston B-fromloc.city_name B-fromloc.airport_name
-False airport O I-fromloc.airport_name
+True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
 False downtown B-toloc.city_name O
 False boston I-toloc.city_name B-city_name
@@ -446,17 +446,17 @@ True which O O
 False al B-city_name O
 True arrives O O
 True in O O
-False san O B-toloc.city_name
-False francisco B-fromloc.city_name I-toloc.city_name
-False at I-fromloc.city_name O
-False 950 I-depart_time.time B-arrive_time.time
-False am I-class_type I-arrive_time.time
+False san B-fromloc.city_name B-toloc.city_name
+False francisco I-fromloc.city_name I-toloc.city_name
+True at O O
+False 950 B-fromloc.city_name B-arrive_time.time
+False am I-fromloc.city_name I-arrive_time.time
 
 True what O O
 True does O O
 True fare O O
 True code O O
-False f B-fromloc.city_name B-fare_basis_code
+False f B-city_name B-fare_basis_code
 True mean O O
 True , O O
 True i O O
@@ -473,10 +473,10 @@ True then O O
 True which O O
 True airport O O
 True is O O
-False closest O B-mod
+False closest B-fromloc.city_name B-mod
 True to O O
-False ontario B-fromloc.city_name B-city_name
-False california I-fromloc.city_name B-state_name
+False ontario B-toloc.city_name B-city_name
+False california I-toloc.city_name B-state_name
 
 True list O O
 True flights O O
@@ -492,7 +492,7 @@ True how O O
 True much O O
 True is O O
 True a O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 False toronto B-city_name B-airport_name
@@ -501,7 +501,7 @@ False international I-city_name I-airport_name
 True what O O
 True airline O O
 True is O O
-False as O B-airline_code
+False as B-cost_relative B-airline_code
 True as O O
 True in O O
 False sam B-fromloc.city_name O
@@ -514,7 +514,7 @@ False airlines O I-airline_name
 False international O I-airline_name
 True flights O O
 True use O O
-False j31 B-fromloc.city_name B-aircraft_code
+False j31 O B-aircraft_code
 
 True list O O
 True airports O O
@@ -530,8 +530,8 @@ True from O O
 False ewr B-fromloc.city_name B-airport_code
 False into I-fromloc.city_name O
 False new O B-city_name
-False york O I-city_name
-False city B-fromloc.city_name I-city_name
+False york B-fromloc.city_name I-city_name
+False city I-fromloc.city_name I-city_name
 
 True give O O
 True me O O
@@ -638,8 +638,8 @@ True served O O
 True on O O
 False american O B-airline_name
 True flight O O
-False 665 B-airline_name B-flight_number
-False 673 I-airline_name I-flight_number
+False 665 B-city_name B-flight_number
+False 673 O I-flight_number
 True from O O
 True milwaukee B-fromloc.city_name B-fromloc.city_name
 True to O O
@@ -679,8 +679,8 @@ True pittsburgh B-fromloc.city_name B-fromloc.city_name
 True to O O
 True cleveland B-toloc.city_name B-toloc.city_name
 False under I-toloc.city_name B-cost_relative
-False 200 O B-fare_amount
-False dollars B-airline_name I-fare_amount
+False 200 I-toloc.city_name B-fare_amount
+False dollars I-toloc.city_name I-fare_amount
 True and O O
 True then O O
 True how O O
@@ -688,7 +688,7 @@ True far O O
 True is O O
 False san B-city_name B-airport_name
 False francisco I-city_name I-airport_name
-False international I-round_trip I-airport_name
+False international I-fromloc.airport_name I-airport_name
 True from O O
 True downtown O O
 
@@ -712,7 +712,7 @@ True transportation O O
 True is O O
 True there O O
 True in O O
-True baltimore B-city_name B-city_name
+False baltimore O B-city_name
 
 True at O O
 True the O O
@@ -789,7 +789,7 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-city_name B-aircraft_code
 
 True list O O
 True the O O
@@ -810,7 +810,7 @@ True what O O
 True does O O
 True fare O O
 True code O O
-False y B-fromloc.city_name B-fare_basis_code
+False y B-city_name B-fare_basis_code
 True mean O O
 
 True are O O
@@ -839,14 +839,14 @@ True cleveland B-fromloc.city_name B-fromloc.city_name
 True to O O
 True dallas B-toloc.city_name B-toloc.city_name
 False before I-toloc.city_name B-depart_time.time_relative
-False noon O B-depart_time.period_of_day
+False noon I-toloc.city_name B-depart_time.period_of_day
 True , O O
 True what O O
 True airlines O O
 True fly O O
 True between O O
-False washington O B-fromloc.city_name
-False dc B-fromloc.city_name B-fromloc.state_code
+True washington B-fromloc.city_name B-fromloc.city_name
+False dc I-fromloc.city_name B-fromloc.state_code
 True and O O
 True columbus B-toloc.city_name B-toloc.city_name
 False ohio I-toloc.city_name B-toloc.state_name
@@ -861,8 +861,8 @@ True at O O
 True the O O
 False salt B-city_name B-airport_name
 False lake I-city_name I-airport_name
-False city I-round_trip I-airport_name
-False airport O I-airport_name
+False city I-fromloc.airport_name I-airport_name
+False airport I-fromloc.airport_name I-airport_name
 
 True list O O
 False first O B-class_type
@@ -896,13 +896,13 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 B-fromloc.city_name B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True list O O
 True seating O O
 True capacities O O
 True of O O
-False delta O B-airline_name
+False delta B-city_name B-airline_name
 True flights O O
 True from O O
 True seattle B-fromloc.city_name B-fromloc.city_name
@@ -967,7 +967,7 @@ True from O O
 True nashville B-fromloc.city_name B-fromloc.city_name
 True to O O
 True tacoma B-toloc.city_name B-toloc.city_name
-True fly O O
+False fly I-toloc.city_name O
 True on O O
 True and O O
 True then O O
@@ -988,9 +988,9 @@ True the O O
 True type O O
 True of O O
 True aircraft O O
-True called O O
+False called B-fromloc.city_name O
 True an O O
-False m80 O B-aircraft_code
+False m80 B-toloc.city_name B-aircraft_code
 True , O O
 True what O O
 True airline O O
@@ -1010,7 +1010,7 @@ True list O O
 True seating O O
 True capacities O O
 True of O O
-False delta O B-airline_name
+False delta B-city_name B-airline_name
 True flights O O
 True from O O
 True seattle B-fromloc.city_name B-fromloc.city_name
@@ -1022,7 +1022,7 @@ True and O O
 True also O O
 True list O O
 True the O O
-False alaska O B-airline_name
+False alaska B-city_name B-airline_name
 False airlines O I-airline_name
 True flights O O
 True arriving O O
@@ -1032,7 +1032,7 @@ False burbank B-fromloc.city_name B-toloc.city_name
 True what O O
 True airline O O
 True is O O
-False hp O B-airline_code
+False hp B-city_name B-airline_code
 True and O O
 True then O O
 True what O O
@@ -1044,9 +1044,9 @@ True do O O
 True flights O O
 True from O O
 True san B-fromloc.city_name B-fromloc.city_name
-True jose I-fromloc.city_name I-fromloc.city_name
-True to O O
-True nashville B-toloc.city_name B-toloc.city_name
+False jose O I-fromloc.city_name
+False to B-toloc.city_name O
+False nashville I-toloc.city_name B-toloc.city_name
 True fly O O
 True on O O
 
@@ -1069,7 +1069,7 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True what O O
 True airline O O
@@ -1111,7 +1111,7 @@ False morning I-fromloc.city_name B-depart_time.period_of_day
 True list O O
 True the O O
 False arizona B-city_name B-state_name
-False airport I-city_name O
+False airport I-fromloc.airport_name O
 True and O O
 True then O O
 True please O O
@@ -1129,7 +1129,7 @@ True capacity O O
 True on O O
 True the O O
 True aircraft O O
-False 733 B-city_name B-aircraft_code
+False 733 O B-aircraft_code
 
 True what's O O
 True the O O
@@ -1142,8 +1142,8 @@ False denver B-toloc.city_name B-city_name
 
 True list O O
 True the O O
-False arizona O B-state_name
-True airport O O
+False arizona B-city_name B-state_name
+False airport I-fromloc.airport_name O
 True and O O
 True list O O
 False la O B-city_name
@@ -1166,7 +1166,7 @@ True san B-fromloc.city_name B-fromloc.city_name
 True jose I-fromloc.city_name I-fromloc.city_name
 True to O O
 True nashville B-toloc.city_name B-toloc.city_name
-False fly I-toloc.city_name O
+True fly O O
 True on O O
 True , O O
 True on O O
@@ -1272,11 +1272,11 @@ True transportation O O
 True from O O
 True the O O
 False memphis B-fromloc.city_name B-airport_name
-False airport O I-airport_name
-False into B-fromloc.city_name O
-False town I-fromloc.city_name O
-True when O O
-False if B-toloc.city_name O
+False airport I-fromloc.airport_name I-airport_name
+False into I-fromloc.airport_name O
+False town I-fromloc.airport_name O
+False when I-fromloc.airport_name O
+False if I-fromloc.airport_name O
 True i O O
 True arrive O O
 True at O O
@@ -1290,8 +1290,8 @@ True are O O
 False snacks O B-meal_description
 True served O O
 True on O O
-False tower O B-airline_name
-False air B-fromloc.city_name I-airline_name
+False tower B-city_name B-airline_name
+False air I-city_name I-airline_name
 
 True what O O
 True days O O
@@ -1362,10 +1362,10 @@ True miles O O
 True from O O
 False toronto B-fromloc.city_name B-fromloc.airport_name
 False international I-fromloc.city_name I-fromloc.airport_name
-False airport O I-fromloc.airport_name
+True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
-True downtown O O
-False toronto B-toloc.city_name B-city_name
+False downtown B-toloc.city_name O
+False toronto I-toloc.city_name B-city_name
 
 True list O O
 False limousine O B-transport_type
@@ -1384,10 +1384,10 @@ True transportation O O
 True available O O
 True at O O
 True the O O
-False salt O B-airport_name
-False lake B-city_name I-airport_name
-False city I-city_name I-airport_name
-False airport O I-airport_name
+False salt B-city_name B-airport_name
+False lake I-city_name I-airport_name
+False city I-fromloc.airport_name I-airport_name
+False airport I-fromloc.airport_name I-airport_name
 
 True what O O
 True are O O
@@ -1403,13 +1403,13 @@ True and O O
 True then O O
 True how O O
 True many O O
-False canadian O B-airline_name
+False canadian B-fromloc.city_name B-airline_name
 False airlines O I-airline_name
 False international O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False 320 O B-aircraft_code
+False 320 B-airline_name B-aircraft_code
 
 True to O O
 True what O O
@@ -1430,7 +1430,7 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True what O O
 True day O O
@@ -1457,7 +1457,7 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True list O O
 False california O B-state_name
@@ -1468,21 +1468,21 @@ True far O O
 True is O O
 False san B-city_name B-airport_name
 False francisco I-city_name I-airport_name
-False international I-transport_type I-airport_name
+False international I-fromloc.airport_name I-airport_name
 True from O O
 True downtown O O
 
 True what O O
 True does O O
-False ua B-airline_name B-airline_code
+False ua O B-airline_code
 True mean O O
 True and O O
 True are O O
 False snacks O B-meal_description
 True served O O
 True on O O
-False tower B-fromloc.city_name B-airline_name
-False air I-fromloc.city_name I-airline_name
+False tower B-city_name B-airline_name
+False air I-city_name I-airline_name
 
 True what O O
 True is O O
@@ -1543,7 +1543,7 @@ True do O O
 True flights O O
 True from O O
 True san B-fromloc.city_name B-fromloc.city_name
-True jose I-fromloc.city_name I-fromloc.city_name
+False jose O I-fromloc.city_name
 True to O O
 True nashville B-toloc.city_name B-toloc.city_name
 True fly O O
@@ -1561,7 +1561,7 @@ True how O O
 True much O O
 True is O O
 True the O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 False boston B-fromloc.city_name B-city_name
@@ -1577,8 +1577,8 @@ True the O O
 False american O B-airline_name
 True flight O O
 True leaving O O
-False at B-fromloc.city_name O
-False 419 I-fromloc.city_name B-depart_time.time
+True at O O
+False 419 B-fromloc.city_name B-depart_time.time
 False pm I-fromloc.city_name I-depart_time.time
 True and O O
 True then O O
@@ -1606,8 +1606,8 @@ True to O O
 True orlando B-toloc.city_name B-toloc.city_name
 True on O O
 False december O B-depart_date.month_name
-False twenty B-airline_name B-depart_date.day_number
-False fifth I-airline_name I-depart_date.day_number
+False twenty O B-depart_date.day_number
+False fifth B-fromloc.city_name I-depart_date.day_number
 True and O O
 True also O O
 True now O O
@@ -1633,7 +1633,7 @@ True san B-fromloc.city_name B-fromloc.city_name
 True jose I-fromloc.city_name I-fromloc.city_name
 True to O O
 True nashville B-toloc.city_name B-toloc.city_name
-False fly I-toloc.city_name O
+True fly O O
 True on O O
 True and O O
 True also O O
@@ -1689,7 +1689,7 @@ False us O B-airline_name
 False air B-city_name I-airline_name
 True and O O
 False st. O B-fromloc.city_name
-False paul O I-fromloc.city_name
+False paul B-fromloc.city_name I-fromloc.city_name
 True to O O
 True kansas B-toloc.city_name B-toloc.city_name
 True city I-toloc.city_name I-toloc.city_name
@@ -1703,7 +1703,7 @@ True seating O O
 True capacity O O
 True of O O
 True the O O
-False m80 O B-aircraft_code
+False m80 B-city_name B-aircraft_code
 True and O O
 True then O O
 True what O O
@@ -1735,8 +1735,8 @@ True served O O
 True on O O
 False american O B-airline_name
 True flight O O
-False 665 B-airline_name B-flight_number
-False 673 I-airline_name I-flight_number
+False 665 B-city_name B-flight_number
+False 673 O I-flight_number
 True from O O
 True milwaukee B-fromloc.city_name B-fromloc.city_name
 True to O O
@@ -1756,7 +1756,7 @@ True also O O
 True how O O
 True much O O
 True is O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 False los O B-city_name
@@ -1812,7 +1812,7 @@ True far O O
 True is O O
 False los O B-airport_name
 False angeles O I-airport_name
-False international B-city_name I-airport_name
+False international O I-airport_name
 True from O O
 True downtown O O
 
@@ -1865,11 +1865,11 @@ True transportation O O
 True is O O
 True available O O
 True between O O
-False phoenix B-city_name B-airport_name
-False airport I-city_name I-airport_name
+False phoenix B-fromloc.city_name B-airport_name
+False airport I-fromloc.city_name I-airport_name
 True and O O
 True downtown O O
-False phoenix O B-city_name
+False phoenix B-fromloc.city_name B-city_name
 True and O O
 True also O O
 True what O O
@@ -1889,7 +1889,7 @@ True list O O
 True the O O
 True distance O O
 True in O O
-True miles O O
+False miles B-city_name O
 True from O O
 False san B-fromloc.city_name B-fromloc.airport_name
 False francisco I-fromloc.city_name I-fromloc.airport_name
@@ -1915,7 +1915,7 @@ True also O O
 True how O O
 True much O O
 True is O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 False los O B-city_name
@@ -1940,9 +1940,9 @@ True toronto B-fromloc.city_name B-fromloc.city_name
 True to O O
 True san B-toloc.city_name B-toloc.city_name
 False diego O I-toloc.city_name
-False stopping B-toloc.city_name O
-False at I-toloc.city_name O
-False dtw I-toloc.city_name B-stoploc.airport_code
+True stopping O O
+True at O O
+False dtw B-fromloc.city_name B-stoploc.airport_code
 True and O O
 True what O O
 True ground O O
@@ -1960,7 +1960,7 @@ True list O O
 True the O O
 True distance O O
 True in O O
-True miles O O
+False miles B-fromloc.city_name O
 True from O O
 False san B-fromloc.city_name B-fromloc.airport_name
 False francisco I-fromloc.city_name I-fromloc.airport_name
@@ -1969,7 +1969,7 @@ True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
 True san B-toloc.city_name B-toloc.city_name
 True francisco I-toloc.city_name I-toloc.city_name
-True downtown O O
+False downtown I-toloc.city_name O
 True , O O
 True what O O
 True types O O
@@ -2008,10 +2008,10 @@ True st. B-toloc.city_name B-toloc.city_name
 True louis I-toloc.city_name I-toloc.city_name
 True and O O
 True between O O
-True st. B-fromloc.city_name B-fromloc.city_name
-True louis I-fromloc.city_name I-fromloc.city_name
+False st. O B-fromloc.city_name
+False louis B-airline_name I-fromloc.city_name
 True and O O
-True toronto B-toloc.city_name B-toloc.city_name
+False toronto O B-toloc.city_name
 True and O O
 True also O O
 True i O O
@@ -2046,15 +2046,15 @@ True in O O
 True miles O O
 True from O O
 True new B-fromloc.city_name B-fromloc.city_name
-True york's I-fromloc.city_name I-fromloc.city_name
-False la O B-fromloc.airport_name
-False guardia B-toloc.city_name I-fromloc.airport_name
+False york's O I-fromloc.city_name
+False la B-toloc.city_name B-fromloc.airport_name
+False guardia I-toloc.city_name I-fromloc.airport_name
 False airport I-toloc.city_name I-fromloc.airport_name
 True to O O
 True downtown O O
-False new O B-city_name
-False york O I-city_name
-False city B-airline_name I-city_name
+False new B-toloc.city_name B-city_name
+False york I-toloc.city_name I-city_name
+False city I-toloc.city_name I-city_name
 
 True i O O
 True need O O
@@ -2080,10 +2080,10 @@ True ground O O
 True transportation O O
 True from O O
 False lga B-fromloc.city_name B-airport_code
-False into I-fromloc.city_name O
-False new O B-city_name
-False york O I-city_name
-False city B-fromloc.city_name I-city_name
+True into O O
+False new B-toloc.city_name B-city_name
+False york I-toloc.city_name I-city_name
+False city I-toloc.city_name I-city_name
 
 True show O O
 True me O O
@@ -2097,8 +2097,8 @@ True detroit B-toloc.city_name B-toloc.city_name
 True on O O
 False delta B-fromloc.city_name B-airline_name
 False northwest O B-airline_name
-False us B-fromloc.city_name B-airline_name
-False air I-fromloc.city_name I-airline_name
+False us B-toloc.city_name B-airline_name
+False air I-toloc.city_name I-airline_name
 True and O O
 False united O B-airline_name
 False airlines O I-airline_name
@@ -2121,15 +2121,15 @@ True in O O
 True miles O O
 True from O O
 True new B-fromloc.city_name B-fromloc.city_name
-True york's I-fromloc.city_name I-fromloc.city_name
-False la O B-fromloc.airport_name
-False guardia B-toloc.city_name I-fromloc.airport_name
+False york's O I-fromloc.city_name
+False la B-toloc.city_name B-fromloc.airport_name
+False guardia I-toloc.city_name I-fromloc.airport_name
 False airport I-toloc.city_name I-fromloc.airport_name
 True to O O
 True downtown O O
-False new O B-city_name
-False york O I-city_name
-False city B-fromloc.city_name I-city_name
+False new B-toloc.city_name B-city_name
+False york I-toloc.city_name I-city_name
+False city I-toloc.city_name I-city_name
 True and O O
 True also O O
 True how O O
@@ -2139,12 +2139,12 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True what O O
 True is O O
 True the O O
-False lowest O B-cost_relative
+True lowest B-cost_relative B-cost_relative
 True fare O O
 True for O O
 True a O O
@@ -2187,7 +2187,7 @@ True cities O O
 True from O O
 True which O O
 False northwest O B-airline_name
-False flies B-fromloc.city_name O
+True flies O O
 
 True what O O
 True is O O
@@ -2202,7 +2202,7 @@ True how O O
 True much O O
 True is O O
 True the O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 True boston B-city_name B-city_name
@@ -2211,7 +2211,7 @@ True what O O
 True does O O
 True fare O O
 True code O O
-False bh B-fromloc.city_name B-fare_basis_code
+False bh B-city_name B-fare_basis_code
 True mean O O
 True and O O
 True also O O
@@ -2220,9 +2220,9 @@ True the O O
 True fare O O
 True for O O
 True a O O
-False taxi B-fromloc.city_name B-transport_type
+False taxi O B-transport_type
 True to O O
-False denver B-toloc.city_name B-city_name
+False denver B-fromloc.city_name B-city_name
 
 True tell O O
 True me O O
@@ -2251,8 +2251,8 @@ True to O O
 True houston B-toloc.city_name B-toloc.city_name
 False nonstop O B-flight_stop
 True with O O
-False dinner B-airline_name B-meal_description
-False served I-airline_name O
+False dinner B-fromloc.city_name B-meal_description
+True served O O
 
 True does O O
 False tacoma O B-airport_name
@@ -2282,7 +2282,7 @@ True louis I-toloc.city_name I-toloc.city_name
 False round I-toloc.city_name B-round_trip
 False trip I-toloc.city_name I-round_trip
 True on O O
-False twa B-city_name B-airline_code
+False twa B-airline_name B-airline_code
 True , O O
 True what O O
 True day O O
@@ -2316,8 +2316,8 @@ True pittsburgh B-fromloc.city_name B-fromloc.city_name
 True to O O
 True cleveland B-toloc.city_name B-toloc.city_name
 False under I-toloc.city_name B-cost_relative
-False 200 O B-fare_amount
-False dollars O I-fare_amount
+False 200 I-toloc.city_name B-fare_amount
+False dollars I-toloc.city_name I-fare_amount
 True , O O
 True list O O
 True airports O O
@@ -2359,9 +2359,9 @@ True do O O
 True flights O O
 True from O O
 True san B-fromloc.city_name B-fromloc.city_name
-True jose I-fromloc.city_name I-fromloc.city_name
-True to O O
-True nashville B-toloc.city_name B-toloc.city_name
+False jose O I-fromloc.city_name
+False to B-toloc.city_name O
+False nashville I-toloc.city_name B-toloc.city_name
 True fly O O
 True on O O
 
@@ -2400,7 +2400,7 @@ True can O O
 True an O O
 False l1011 O B-aircraft_code
 True aircraft O O
-True hold O O
+False hold B-city_name O
 True , O O
 True what O O
 True cities O O
@@ -2458,8 +2458,8 @@ False those B-fromloc.city_name O
 True flights O O
 False departing B-toloc.city_name O
 True on O O
-False thursday B-fromloc.city_name B-depart_date.day_name
-False before I-fromloc.city_name B-depart_time.time_relative
+False thursday O B-depart_date.day_name
+False before O B-depart_time.time_relative
 False 8 O B-depart_time.time
 False am B-fromloc.city_name I-depart_time.time
 True from O O
@@ -2522,7 +2522,7 @@ True of O O
 True plane O O
 True is O O
 True a O O
-False d9s B-fromloc.city_name B-aircraft_code
+False d9s B-city_name B-aircraft_code
 True and O O
 True then O O
 True what's O O
@@ -2530,9 +2530,9 @@ True the O O
 True fare O O
 True for O O
 True a O O
-False taxi B-fromloc.city_name B-transport_type
+False taxi O B-transport_type
 True to O O
-False denver B-toloc.city_name B-city_name
+False denver B-fromloc.city_name B-city_name
 
 True what O O
 True type O O
@@ -2552,7 +2552,7 @@ True use O O
 False j31 O B-aircraft_code
 
 True list O O
-True la B-city_name B-city_name
+False la O B-city_name
 True and O O
 True then O O
 True what O O
@@ -2633,12 +2633,12 @@ True to O O
 True dallas B-toloc.city_name B-toloc.city_name
 True that O O
 True leaves O O
-False before B-airline_name B-depart_time.time_relative
-False noon I-airline_name B-depart_time.period_of_day
+False before B-fromloc.city_name B-depart_time.time_relative
+False noon I-fromloc.city_name B-depart_time.period_of_day
 True , O O
 False after O B-depart_time.time_relative
 False 12 O B-depart_time.time
-False pm B-airline_name I-depart_time.time
+False pm O I-depart_time.time
 True on O O
 False wednesday O B-depart_date.day_name
 False april O B-depart_date.month_name
@@ -2676,14 +2676,14 @@ True list O O
 True the O O
 True distance O O
 True in O O
-True miles O O
+False miles B-city_name O
 True from O O
 False toronto B-fromloc.city_name B-fromloc.airport_name
 False international I-fromloc.city_name I-fromloc.airport_name
-False airport O I-fromloc.airport_name
+True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
-True downtown O O
-False toronto B-toloc.city_name B-city_name
+False downtown B-toloc.city_name O
+False toronto I-toloc.city_name B-city_name
 True and O O
 True then O O
 True what O O
@@ -2725,9 +2725,9 @@ True do O O
 True flights O O
 True from O O
 True san B-fromloc.city_name B-fromloc.city_name
-True jose I-fromloc.city_name I-fromloc.city_name
-True to O O
-True nashville B-toloc.city_name B-toloc.city_name
+False jose O I-fromloc.city_name
+False to B-toloc.city_name O
+False nashville I-toloc.city_name B-toloc.city_name
 True fly O O
 True on O O
 True and O O
@@ -2740,7 +2740,7 @@ True ground O O
 True transportation O O
 True from O O
 False nashville B-fromloc.city_name B-airport_name
-False airport I-fromloc.city_name I-airport_name
+False airport O I-airport_name
 
 True list O O
 False coach O B-class_type
@@ -2768,7 +2768,7 @@ True show O O
 True me O O
 False northwest O B-airline_name
 True flight O O
-False 608 O B-flight_number
+False 608 B-fromloc.city_name B-flight_number
 True from O O
 True kansas B-fromloc.city_name B-fromloc.city_name
 True city I-fromloc.city_name I-fromloc.city_name
@@ -2800,11 +2800,11 @@ True on O O
 False dl B-city_name B-airline_code
 False 468 O B-flight_number
 True which O O
-True al O O
+False al B-city_name O
 True arrives O O
 True in O O
-False san O B-toloc.city_name
-False francisco B-fromloc.city_name I-toloc.city_name
+False san B-fromloc.city_name B-toloc.city_name
+False francisco I-fromloc.city_name I-toloc.city_name
 True at O O
 False 950 B-fromloc.city_name B-arrive_time.time
 False am I-fromloc.city_name I-arrive_time.time
@@ -2825,7 +2825,7 @@ False york's O I-city_name
 False la O B-airport_name
 False guardia O I-airport_name
 True from O O
-True downtown O O
+False downtown B-city_name O
 True and O O
 True also O O
 True how O O
@@ -2845,14 +2845,14 @@ True the O O
 True airports O O
 True in O O
 True the O O
-False new O B-city_name
-False york O I-city_name
-False city B-fromloc.city_name I-city_name
-True area O O
+True new B-city_name B-city_name
+False york I-fromloc.airport_name I-city_name
+False city I-fromloc.airport_name I-city_name
+False area I-fromloc.airport_name O
 True and O O
-True then O O
+False then B-toloc.city_name O
 True to O O
-False what B-toloc.city_name O
+True what O O
 True cities O O
 True from O O
 True boston B-fromloc.city_name B-fromloc.city_name
@@ -2860,8 +2860,8 @@ True does O O
 False america O B-airline_name
 False west O I-airline_name
 True fly O O
-False first O B-class_type
-False class B-fromloc.city_name I-class_type
+False first B-airline_name B-class_type
+False class I-airline_name I-class_type
 
 True i O O
 True would O O
@@ -2992,16 +2992,16 @@ False airlines O I-airline_name
 True flights O O
 True use O O
 True aircraft O O
-False dh8 O B-aircraft_code
+False dh8 B-airline_name B-aircraft_code
 
 True list O O
 True the O O
 True distance O O
 True in O O
-True miles O O
+False miles B-city_name O
 True from O O
 False boston B-fromloc.city_name B-fromloc.airport_name
-False airport I-fromloc.city_name I-fromloc.airport_name
+True airport I-fromloc.airport_name I-fromloc.airport_name
 True to O O
 False downtown B-toloc.city_name O
 False boston I-toloc.city_name B-city_name
@@ -3015,8 +3015,8 @@ True does O O
 False america O B-airline_name
 False west O I-airline_name
 True fly O O
-False first O B-class_type
-False class B-fromloc.city_name I-class_type
+False first B-airline_name B-class_type
+False class I-airline_name I-class_type
 
 True list O O
 True the O O
@@ -3026,7 +3026,7 @@ True flights O O
 True to O O
 False or B-fromloc.city_name O
 True from O O
-False denver B-fromloc.city_name B-city_name
+False denver B-toloc.city_name B-city_name
 
 True i O O
 True would O O
@@ -3050,7 +3050,7 @@ True on O O
 False dl B-city_name B-airline_code
 False 468 O B-flight_number
 True which O O
-True al O O
+False al B-city_name O
 True arrives O O
 True in O O
 False san B-fromloc.city_name B-toloc.city_name
@@ -3067,7 +3067,7 @@ False bh B-fromloc.city_name B-fare_basis_code
 True mean O O
 True , O O
 True to O O
-False what B-toloc.city_name O
+True what O O
 True cities O O
 True from O O
 True boston B-fromloc.city_name B-fromloc.city_name
@@ -3099,7 +3099,7 @@ True and O O
 True how O O
 True much O O
 True is O O
-False limousine O B-transport_type
+False limousine B-city_name B-transport_type
 True service O O
 True in O O
 False los O B-city_name
@@ -3121,13 +3121,13 @@ False meals O B-meal
 True ever O O
 True served O O
 True on O O
-True tower B-airline_name B-airline_name
-True air I-airline_name I-airline_name
+False tower B-city_name B-airline_name
+False air I-city_name I-airline_name
 
 True what O O
 True the O O
 True abbreviation O O
-False us B-city_name B-airline_code
+False us O B-airline_code
 True stand O O
 True for O O
 True and O O
@@ -3172,5 +3172,5 @@ True seating O O
 True capacity O O
 True of O O
 True the O O
-False 733 O B-aircraft_code
+False 733 B-city_name B-aircraft_code
 

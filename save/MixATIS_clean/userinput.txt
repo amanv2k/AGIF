@@ -1,0 +1,17 @@
+get
+the
+fare
+for
+flights
+from
+texas
+to
+columbia
+and
+what
+is
+the
+capacity
+of
+that
+flight

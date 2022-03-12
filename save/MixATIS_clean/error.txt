@@ -42,7 +42,7 @@ O	O
 B-city_name	B-transport_type	
 O	O	
 O	O	
-B-city_name	B-city_name	
+B-fromloc.city_name	B-city_name	
 
 
 	atis_capacity,atis_day_name,atis_flight_time
@@ -52,7 +52,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-city_name	B-aircraft_code	
 O	O	
 O	O	
 O	O	
@@ -81,7 +81,7 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 
 
-atis_ground_service	atis_airport,atis_flight,atis_ground_fare
+atis_cheapest,atis_ground_service	atis_airport,atis_flight,atis_ground_fare
 O	O	
 O	B-state_name	
 O	O	
@@ -109,7 +109,7 @@ O	O
 B-city_name	B-city_name	
 
 
-atis_ground_fare,atis_ground_service	atis_city,atis_ground_service,atis_meal
+atis_ground_service	atis_city,atis_ground_service,atis_meal
 O	O	
 O	B-city_name	
 O	O	
@@ -117,7 +117,7 @@ O	O
 O	O	
 O	O	
 O	O	
-B-city_name	B-city_name	
+B-fromloc.city_name	B-city_name	
 O	O	
 O	O	
 O	B-meal	
@@ -130,11 +130,11 @@ O	O
 B-city_name	O	
 O	O	
 O	O	
-O	B-toloc.city_name	
-B-fromloc.city_name	I-toloc.city_name	
-I-fromloc.city_name	O	
-I-depart_time.time	B-arrive_time.time	
-I-class_type	I-arrive_time.time	
+B-fromloc.city_name	B-toloc.city_name	
+I-fromloc.city_name	I-toloc.city_name	
+O	O	
+B-fromloc.city_name	B-arrive_time.time	
+I-fromloc.city_name	I-arrive_time.time	
 
 
 atis_quantity	atis_meal,atis_quantity
@@ -145,8 +145,8 @@ O	O
 O	O	
 O	B-airline_name	
 O	O	
-B-airline_name	B-flight_number	
-I-airline_name	I-flight_number	
+B-city_name	B-flight_number	
+O	I-flight_number	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
 O	O	
@@ -155,12 +155,12 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airline_name	
+B-fromloc.city_name	B-airline_name	
 O	I-airline_name	
 O	I-airline_name	
 O	O	
 O	O	
-B-fromloc.city_name	B-aircraft_code	
+O	B-aircraft_code	
 
 
 atis_quantity	atis_airfare,atis_capacity
@@ -185,10 +185,10 @@ O	O
 O	O	
 O	B-aircraft_code	
 O	O	
-O	O	
+B-city_name	O	
 
 
-	atis_day_name,atis_flight_no
+atis_flight,atis_flight_no	atis_day_name,atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -224,7 +224,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
 I-fromloc.city_name	I-fromloc.airport_name	
@@ -233,7 +233,7 @@ I-fromloc.airport_name	I-fromloc.airport_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	I-toloc.city_name	
-O	O	
+I-toloc.city_name	O	
 
 
 atis_capacity,atis_quantity	atis_aircraft,atis_airport,atis_quantity
@@ -258,7 +258,7 @@ O	O
 O	B-aircraft_code	
 
 
-	atis_airfare,atis_flight_no
+atis_flight_no	atis_airfare,atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -279,7 +279,7 @@ O	O
 B-toloc.city_name	B-airline_name	
 
 
-atis_capacity,atis_quantity	atis_airport,atis_city,atis_quantity
+atis_quantity	atis_airport,atis_city,atis_quantity
 O	O	
 O	B-state_name	
 O	O	
@@ -313,10 +313,10 @@ O	I-airline_name
 O	I-airline_name	
 O	O	
 O	O	
-B-fromloc.city_name	B-aircraft_code	
+O	B-aircraft_code	
 
 
-atis_city,atis_quantity	atis_city,atis_quantity
+atis_abbreviation,atis_city,atis_quantity	atis_city,atis_quantity
 O	O	
 O	O	
 O	O	
@@ -355,10 +355,10 @@ O	B-transport_type
 O	O	
 O	O	
 O	B-city_name	
-O	I-city_name	
+B-city_name	I-city_name	
 
 
-atis_city	atis_city
+atis_abbreviation,atis_city	atis_city
 O	O	
 O	O	
 O	O	
@@ -367,7 +367,7 @@ O	O
 O	O	
 
 
-atis_ground_fare,atis_ground_service	atis_ground_service,atis_meal
+	atis_ground_service,atis_meal
 O	O	
 O	O	
 O	O	
@@ -390,11 +390,11 @@ O	O
 B-city_name	B-airline_code	
 O	B-flight_number	
 O	O	
+B-city_name	O	
 O	O	
 O	O	
-O	O	
-O	B-toloc.city_name	
-B-fromloc.city_name	I-toloc.city_name	
+B-fromloc.city_name	B-toloc.city_name	
+I-fromloc.city_name	I-toloc.city_name	
 O	O	
 B-fromloc.city_name	B-arrive_time.time	
 I-fromloc.city_name	I-arrive_time.time	
@@ -419,7 +419,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-city_name	B-aircraft_code	
 O	O	
 O	O	
 O	O	
@@ -439,7 +439,7 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
-O	I-fromloc.airport_name	
+I-fromloc.airport_name	I-fromloc.airport_name	
 O	O	
 B-toloc.city_name	O	
 I-toloc.city_name	B-city_name	
@@ -485,19 +485,19 @@ O	O
 B-city_name	O	
 O	O	
 O	O	
-O	B-toloc.city_name	
-B-fromloc.city_name	I-toloc.city_name	
-I-fromloc.city_name	O	
-I-depart_time.time	B-arrive_time.time	
-I-class_type	I-arrive_time.time	
+B-fromloc.city_name	B-toloc.city_name	
+I-fromloc.city_name	I-toloc.city_name	
+O	O	
+B-fromloc.city_name	B-arrive_time.time	
+I-fromloc.city_name	I-arrive_time.time	
 
 
-atis_aircraft,atis_city	atis_abbreviation,atis_airfare,atis_airport
+	atis_abbreviation,atis_airfare,atis_airport
 O	O	
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-fare_basis_code	
+B-city_name	B-fare_basis_code	
 O	O	
 O	O	
 O	O	
@@ -514,10 +514,10 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-mod	
+B-fromloc.city_name	B-mod	
 O	O	
-B-fromloc.city_name	B-city_name	
-I-fromloc.city_name	B-state_name	
+B-toloc.city_name	B-city_name	
+I-toloc.city_name	B-state_name	
 
 
 atis_ground_fare	atis_flight,atis_ground_fare
@@ -535,18 +535,18 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 B-city_name	B-airport_name	
 I-city_name	I-airport_name	
 
 
-atis_quantity	atis_airline,atis_quantity
+atis_abbreviation,atis_city,atis_quantity	atis_airline,atis_quantity
 O	O	
 O	O	
 O	O	
-O	B-airline_code	
+B-cost_relative	B-airline_code	
 O	O	
 O	O	
 B-fromloc.city_name	O	
@@ -559,10 +559,10 @@ O	I-airline_name
 O	I-airline_name	
 O	O	
 O	O	
-B-fromloc.city_name	B-aircraft_code	
+O	B-aircraft_code	
 
 
-atis_ground_service	atis_airport,atis_ground_service
+atis_airport,atis_ground_service	atis_airport,atis_ground_service
 O	O	
 O	O	
 O	O	
@@ -577,8 +577,8 @@ O	O
 B-fromloc.city_name	B-airport_code	
 I-fromloc.city_name	O	
 O	B-city_name	
-O	I-city_name	
 B-fromloc.city_name	I-city_name	
+I-fromloc.city_name	I-city_name	
 
 
 	atis_airfare,atis_airline
@@ -703,8 +703,8 @@ O	O
 O	O	
 O	B-airline_name	
 O	O	
-B-airline_name	B-flight_number	
-I-airline_name	I-flight_number	
+B-city_name	B-flight_number	
+O	I-flight_number	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
 O	O	
@@ -748,8 +748,8 @@ B-fromloc.city_name	B-fromloc.city_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	B-cost_relative	
-O	B-fare_amount	
-B-airline_name	I-fare_amount	
+I-toloc.city_name	B-fare_amount	
+I-toloc.city_name	I-fare_amount	
 O	O	
 O	O	
 O	O	
@@ -757,7 +757,7 @@ O	O
 O	O	
 B-city_name	B-airport_name	
 I-city_name	I-airport_name	
-I-round_trip	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
 O	O	
 O	O	
 
@@ -783,7 +783,7 @@ O	O
 O	O	
 O	O	
 O	O	
-B-city_name	B-city_name	
+O	B-city_name	
 
 
 atis_capacity,atis_quantity	atis_aircraft
@@ -853,7 +853,7 @@ B-city_name	B-airport_name
 I-city_name	I-airport_name	
 
 
-	atis_flight_no
+atis_flight_no	atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -872,7 +872,7 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-city_name	B-aircraft_code	
 
 
 	atis_city
@@ -899,7 +899,7 @@ O	O
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-fare_basis_code	
+B-city_name	B-fare_basis_code	
 O	O	
 
 
@@ -936,14 +936,14 @@ B-fromloc.city_name	B-fromloc.city_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	B-depart_time.time_relative	
-O	B-depart_time.period_of_day	
+I-toloc.city_name	B-depart_time.period_of_day	
 O	O	
 O	O	
 O	O	
 O	O	
 O	O	
-O	B-fromloc.city_name	
-B-fromloc.city_name	B-fromloc.state_code	
+B-fromloc.city_name	B-fromloc.city_name	
+I-fromloc.city_name	B-fromloc.state_code	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	B-toloc.state_name	
@@ -958,8 +958,8 @@ O	O
 O	O	
 B-city_name	B-airport_name	
 I-city_name	I-airport_name	
-I-round_trip	I-airport_name	
-O	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
 
 
 atis_quantity	atis_airfare,atis_day_name,atis_quantity
@@ -995,7 +995,7 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 	atis_capacity,atis_meal
@@ -1003,7 +1003,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airline_name	
+B-city_name	B-airline_name	
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
@@ -1030,7 +1030,7 @@ B-fromloc.city_name	B-depart_date.day_name
 I-fromloc.city_name	B-depart_time.period_of_day	
 
 
-atis_cheapest,atis_ground_service	atis_airport,atis_ground_service,atis_meal
+atis_flight,atis_ground_service	atis_airport,atis_ground_service,atis_meal
 O	O	
 O	B-state_name	
 O	O	
@@ -1060,7 +1060,7 @@ B-fromloc.city_name	B-depart_date.day_name
 I-fromloc.city_name	B-depart_time.period_of_day	
 
 
-atis_capacity,atis_quantity	atis_day_name,atis_quantity
+atis_quantity	atis_day_name,atis_quantity
 O	O	
 O	O	
 O	O	
@@ -1072,7 +1072,7 @@ O	O
 B-fromloc.city_name	B-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
-O	O	
+I-toloc.city_name	O	
 O	O	
 O	O	
 O	O	
@@ -1087,7 +1087,7 @@ O	O
 O	B-aircraft_code	
 
 
-atis_airport	atis_aircraft,atis_airline,atis_distance
+	atis_aircraft,atis_airline,atis_distance
 O	O	
 O	O	
 O	O	
@@ -1095,9 +1095,9 @@ O	O
 O	O	
 O	O	
 O	O	
+B-fromloc.city_name	O	
 O	O	
-O	O	
-O	B-aircraft_code	
+B-toloc.city_name	B-aircraft_code	
 O	O	
 O	O	
 O	O	
@@ -1119,7 +1119,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airline_name	
+B-city_name	B-airline_name	
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
@@ -1131,7 +1131,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airline_name	
+B-city_name	B-airline_name	
 O	I-airline_name	
 O	O	
 O	O	
@@ -1139,11 +1139,11 @@ O	O
 B-fromloc.city_name	B-toloc.city_name	
 
 
-atis_aircraft	atis_airline,atis_day_name
+	atis_airline,atis_day_name
 O	O	
 O	O	
 O	O	
-O	B-airline_code	
+B-city_name	B-airline_code	
 O	O	
 O	O	
 O	O	
@@ -1155,9 +1155,9 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
-O	O	
-B-toloc.city_name	B-toloc.city_name	
+O	I-fromloc.city_name	
+B-toloc.city_name	O	
+I-toloc.city_name	B-toloc.city_name	
 O	O	
 O	O	
 
@@ -1182,10 +1182,10 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
-	atis_airline,atis_flight_no
+atis_flight_no	atis_airline,atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -1226,11 +1226,11 @@ B-fromloc.city_name	B-depart_date.day_name
 I-fromloc.city_name	B-depart_time.period_of_day	
 
 
-atis_airport,atis_ground_service	atis_airport,atis_ground_service
+atis_airport	atis_airport,atis_ground_service
 O	O	
 O	O	
 B-city_name	B-state_name	
-I-city_name	O	
+I-fromloc.airport_name	O	
 O	O	
 O	O	
 O	O	
@@ -1250,7 +1250,7 @@ O	O
 O	O	
 O	O	
 O	O	
-B-city_name	B-aircraft_code	
+O	B-aircraft_code	
 
 
 	atis_ground_fare
@@ -1267,14 +1267,14 @@ B-toloc.city_name	B-city_name
 atis_airport	atis_airport,atis_city
 O	O	
 O	O	
-O	B-state_name	
-O	O	
+B-city_name	B-state_name	
+I-fromloc.airport_name	O	
 O	O	
 O	O	
 O	B-city_name	
 
 
-	atis_airport
+atis_airport	atis_airport
 O	O	
 O	O	
 O	O	
@@ -1295,7 +1295,7 @@ B-fromloc.city_name	B-fromloc.city_name
 I-fromloc.city_name	I-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
-I-toloc.city_name	O	
+O	O	
 O	O	
 O	O	
 O	O	
@@ -1365,7 +1365,7 @@ O	O
 O	B-aircraft_code	
 
 
-atis_aircraft	atis_airfare,atis_airline,atis_day_name
+	atis_airfare,atis_airline,atis_day_name
 O	O	
 O	O	
 O	O	
@@ -1407,11 +1407,11 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-airport_name	
-O	I-airport_name	
-B-fromloc.city_name	O	
-I-fromloc.city_name	O	
-O	O	
-B-toloc.city_name	O	
+I-fromloc.airport_name	I-airport_name	
+I-fromloc.airport_name	O	
+I-fromloc.airport_name	O	
+I-fromloc.airport_name	O	
+I-fromloc.airport_name	O	
 O	O	
 O	O	
 O	O	
@@ -1425,8 +1425,8 @@ O	O
 O	B-meal_description	
 O	O	
 O	O	
-O	B-airline_name	
-B-fromloc.city_name	I-airline_name	
+B-city_name	B-airline_name	
+I-city_name	I-airline_name	
 
 
 	atis_day_name,atis_flight_time
@@ -1503,13 +1503,13 @@ O	O
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
 I-fromloc.city_name	I-fromloc.airport_name	
-O	I-fromloc.airport_name	
+I-fromloc.airport_name	I-fromloc.airport_name	
 O	O	
-O	O	
-B-toloc.city_name	B-city_name	
+B-toloc.city_name	O	
+I-toloc.city_name	B-city_name	
 
 
-atis_airport,atis_ground_fare,atis_ground_service	atis_ground_fare,atis_ground_service
+atis_airport	atis_ground_fare,atis_ground_service
 O	O	
 O	B-transport_type	
 O	O	
@@ -1527,10 +1527,10 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airport_name	
-B-city_name	I-airport_name	
+B-city_name	B-airport_name	
 I-city_name	I-airport_name	
-O	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
 
 
 atis_quantity	atis_flight_time,atis_quantity
@@ -1548,13 +1548,13 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-airline_name	
+B-fromloc.city_name	B-airline_name	
 O	I-airline_name	
 O	I-airline_name	
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 atis_quantity	atis_city,atis_quantity
@@ -1577,7 +1577,7 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 	atis_day_name
@@ -1608,7 +1608,7 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 atis_airport,atis_ground_fare	atis_airport,atis_distance
@@ -1621,26 +1621,26 @@ O	O
 O	O	
 B-city_name	B-airport_name	
 I-city_name	I-airport_name	
-I-transport_type	I-airport_name	
+I-fromloc.airport_name	I-airport_name	
 O	O	
 O	O	
 
 
-atis_city	atis_abbreviation,atis_meal
+atis_abbreviation,atis_city	atis_abbreviation,atis_meal
 O	O	
 O	O	
-B-airline_name	B-airline_code	
+O	B-airline_code	
 O	O	
 O	O	
 O	O	
 O	B-meal_description	
 O	O	
 O	O	
-B-fromloc.city_name	B-airline_name	
-I-fromloc.city_name	I-airline_name	
+B-city_name	B-airline_name	
+I-city_name	I-airline_name	
 
 
-atis_airport,atis_capacity	atis_capacity
+	atis_capacity
 O	O	
 O	O	
 O	O	
@@ -1696,7 +1696,7 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 
 
-	atis_day_name,atis_flight_no,atis_ground_fare
+atis_ground_fare	atis_day_name,atis_flight_no,atis_ground_fare
 O	O	
 O	O	
 O	O	
@@ -1706,7 +1706,7 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
+O	I-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 O	O	
@@ -1724,13 +1724,13 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 B-fromloc.city_name	B-city_name	
 
 
-atis_aircraft	atis_aircraft,atis_meal
+atis_aircraft,atis_meal	atis_aircraft,atis_meal
 O	O	
 O	O	
 O	O	
@@ -1742,8 +1742,8 @@ O	O
 O	B-airline_name	
 O	O	
 O	O	
-B-fromloc.city_name	O	
-I-fromloc.city_name	B-depart_time.time	
+O	O	
+B-fromloc.city_name	B-depart_time.time	
 I-fromloc.city_name	I-depart_time.time	
 O	O	
 O	O	
@@ -1761,7 +1761,7 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 
 
-atis_ground_service	atis_airfare,atis_ground_service
+	atis_airfare,atis_ground_service
 O	B-cost_relative	
 O	B-round_trip	
 O	I-round_trip	
@@ -1773,8 +1773,8 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 O	O	
 O	B-depart_date.month_name	
-B-airline_name	B-depart_date.day_number	
-I-airline_name	I-depart_date.day_number	
+O	B-depart_date.day_number	
+B-fromloc.city_name	I-depart_date.day_number	
 O	O	
 O	O	
 O	O	
@@ -1802,7 +1802,7 @@ B-fromloc.city_name	B-fromloc.city_name
 I-fromloc.city_name	I-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
-I-toloc.city_name	O	
+O	O	
 O	O	
 O	O	
 O	O	
@@ -1862,7 +1862,7 @@ O	B-airline_name
 B-city_name	I-airline_name	
 O	O	
 O	B-fromloc.city_name	
-O	I-fromloc.city_name	
+B-fromloc.city_name	I-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	I-toloc.city_name	
@@ -1870,7 +1870,7 @@ O	B-depart_date.day_name
 O	B-depart_time.period_of_day	
 
 
-atis_capacity	atis_capacity,atis_day_name
+	atis_capacity,atis_day_name
 O	O	
 O	O	
 O	O	
@@ -1878,7 +1878,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-city_name	B-aircraft_code	
 O	O	
 O	O	
 O	O	
@@ -1896,7 +1896,7 @@ O	O
 O	O	
 
 
-atis_aircraft,atis_city	atis_abbreviation,atis_meal
+	atis_abbreviation,atis_meal
 O	O	
 O	O	
 O	O	
@@ -1912,15 +1912,15 @@ O	O
 O	O	
 O	B-airline_name	
 O	O	
-B-airline_name	B-flight_number	
-I-airline_name	I-flight_number	
+B-city_name	B-flight_number	
+O	I-flight_number	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 
 
-atis_capacity,atis_ground_fare	atis_airfare,atis_ground_fare
+atis_airport,atis_ground_fare	atis_airfare,atis_ground_fare
 O	O	
 O	O	
 O	O	
@@ -1935,7 +1935,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 O	B-city_name	
@@ -1963,7 +1963,7 @@ O	O
 O	O	
 
 
-atis_ground_service	atis_abbreviation,atis_ground_service
+	atis_abbreviation,atis_ground_service
 O	O	
 O	O	
 O	O	
@@ -1984,7 +1984,7 @@ I-city_name	I-airport_name
 I-fromloc.airport_name	I-airport_name	
 
 
-	atis_abbreviation,atis_distance
+atis_abbreviation	atis_abbreviation,atis_distance
 O	O	
 O	O	
 O	O	
@@ -1997,7 +1997,7 @@ O	O
 O	O	
 O	B-airport_name	
 O	I-airport_name	
-B-city_name	I-airport_name	
+O	I-airport_name	
 O	O	
 O	O	
 
@@ -2041,7 +2041,7 @@ O	O
 B-city_name	B-aircraft_code	
 
 
-atis_ground_fare	atis_ground_fare,atis_ground_service,atis_meal
+atis_distance,atis_ground_fare,atis_meal	atis_ground_fare,atis_ground_service,atis_meal
 O	O	
 O	O	
 O	O	
@@ -2058,11 +2058,11 @@ O	O
 O	O	
 O	O	
 O	O	
-B-city_name	B-airport_name	
-I-city_name	I-airport_name	
+B-fromloc.city_name	B-airport_name	
+I-fromloc.city_name	I-airport_name	
 O	O	
 O	O	
-O	B-city_name	
+B-fromloc.city_name	B-city_name	
 O	O	
 O	O	
 O	O	
@@ -2079,12 +2079,12 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 
 
-atis_airport,atis_ground_fare	atis_distance,atis_flight_time,atis_ground_fare
+atis_airport,atis_distance,atis_ground_fare	atis_distance,atis_flight_time,atis_ground_fare
 O	O	
 O	O	
 O	O	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
 I-fromloc.city_name	I-fromloc.airport_name	
@@ -2110,7 +2110,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 O	B-city_name	
@@ -2137,9 +2137,9 @@ B-fromloc.city_name	B-fromloc.city_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 O	I-toloc.city_name	
-B-toloc.city_name	O	
-I-toloc.city_name	O	
-I-toloc.city_name	B-stoploc.airport_code	
+O	O	
+O	O	
+B-fromloc.city_name	B-stoploc.airport_code	
 O	O	
 O	O	
 O	O	
@@ -2154,12 +2154,12 @@ O	O
 O	B-city_name	
 
 
-atis_capacity,atis_quantity	atis_distance,atis_ground_service,atis_quantity
+atis_airport,atis_quantity	atis_distance,atis_ground_service,atis_quantity
 O	O	
 O	O	
 O	O	
 O	O	
-O	O	
+B-fromloc.city_name	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
 I-fromloc.city_name	I-fromloc.airport_name	
@@ -2168,7 +2168,7 @@ I-fromloc.airport_name	I-fromloc.airport_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	I-toloc.city_name	
-O	O	
+I-toloc.city_name	O	
 O	O	
 O	O	
 O	O	
@@ -2209,10 +2209,10 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 O	O	
 O	O	
-B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
+O	B-fromloc.city_name	
+B-airline_name	I-fromloc.city_name	
 O	O	
-B-toloc.city_name	B-toloc.city_name	
+O	B-toloc.city_name	
 O	O	
 O	O	
 O	O	
@@ -2226,7 +2226,7 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 
 
-atis_distance	atis_day_name,atis_distance
+atis_distance,atis_flight_no	atis_day_name,atis_distance
 O	O	
 O	O	
 O	O	
@@ -2249,18 +2249,18 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
-O	B-fromloc.airport_name	
-B-toloc.city_name	I-fromloc.airport_name	
+O	I-fromloc.city_name	
+B-toloc.city_name	B-fromloc.airport_name	
+I-toloc.city_name	I-fromloc.airport_name	
 I-toloc.city_name	I-fromloc.airport_name	
 O	O	
 O	O	
-O	B-city_name	
-O	I-city_name	
-B-airline_name	I-city_name	
+B-toloc.city_name	B-city_name	
+I-toloc.city_name	I-city_name	
+I-toloc.city_name	I-city_name	
 
 
-	atis_flight,atis_ground_service
+atis_flight	atis_flight,atis_ground_service
 O	O	
 O	O	
 O	O	
@@ -2285,13 +2285,13 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-airport_code	
-I-fromloc.city_name	O	
-O	B-city_name	
-O	I-city_name	
-B-fromloc.city_name	I-city_name	
+O	O	
+B-toloc.city_name	B-city_name	
+I-toloc.city_name	I-city_name	
+I-toloc.city_name	I-city_name	
 
 
-atis_ground_fare	atis_airfare,atis_ground_fare
+atis_airport,atis_ground_fare	atis_airfare,atis_ground_fare
 O	O	
 O	O	
 O	B-round_trip	
@@ -2304,8 +2304,8 @@ B-toloc.city_name	B-toloc.city_name
 O	O	
 B-fromloc.city_name	B-airline_name	
 O	B-airline_name	
-B-fromloc.city_name	B-airline_name	
-I-fromloc.city_name	I-airline_name	
+B-toloc.city_name	B-airline_name	
+I-toloc.city_name	I-airline_name	
 O	O	
 O	B-airline_name	
 O	I-airline_name	
@@ -2330,15 +2330,15 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
-O	B-fromloc.airport_name	
-B-toloc.city_name	I-fromloc.airport_name	
+O	I-fromloc.city_name	
+B-toloc.city_name	B-fromloc.airport_name	
+I-toloc.city_name	I-fromloc.airport_name	
 I-toloc.city_name	I-fromloc.airport_name	
 O	O	
 O	O	
-O	B-city_name	
-O	I-city_name	
-B-fromloc.city_name	I-city_name	
+B-toloc.city_name	B-city_name	
+I-toloc.city_name	I-city_name	
+I-toloc.city_name	I-city_name	
 O	O	
 O	O	
 O	O	
@@ -2348,14 +2348,14 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 	atis_airfare,atis_flight_time
 O	O	
 O	O	
 O	O	
-O	B-cost_relative	
+B-cost_relative	B-cost_relative	
 O	O	
 O	O	
 O	O	
@@ -2400,10 +2400,10 @@ O	O
 O	O	
 O	O	
 O	B-airline_name	
-B-fromloc.city_name	O	
+O	O	
 
 
-atis_airport,atis_capacity,atis_ground_fare	atis_capacity,atis_ground_fare
+atis_airport,atis_ground_fare	atis_capacity,atis_ground_fare
 O	O	
 O	O	
 O	O	
@@ -2417,18 +2417,18 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 B-city_name	B-city_name	
 
 
-atis_city	atis_abbreviation,atis_ground_fare
+atis_abbreviation,atis_city	atis_abbreviation,atis_ground_fare
 O	O	
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-fare_basis_code	
+B-city_name	B-fare_basis_code	
 O	O	
 O	O	
 O	O	
@@ -2437,12 +2437,12 @@ O	O
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-transport_type	
+O	B-transport_type	
 O	O	
-B-toloc.city_name	B-city_name	
+B-fromloc.city_name	B-city_name	
 
 
-atis_capacity,atis_quantity	atis_aircraft,atis_quantity
+atis_quantity	atis_aircraft,atis_quantity
 O	O	
 O	O	
 O	O	
@@ -2472,8 +2472,8 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 O	B-flight_stop	
 O	O	
-B-airline_name	B-meal_description	
-I-airline_name	O	
+B-fromloc.city_name	B-meal_description	
+O	O	
 
 
 atis_airport,atis_distance	atis_ground_service
@@ -2491,7 +2491,7 @@ O	O
 O	O	
 
 
-	atis_airfare,atis_day_name,atis_flight_no
+atis_flight_no,atis_meal	atis_airfare,atis_day_name,atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -2507,7 +2507,7 @@ I-toloc.city_name	I-toloc.city_name
 I-toloc.city_name	B-round_trip	
 I-toloc.city_name	I-round_trip	
 O	O	
-B-city_name	B-airline_code	
+B-airline_name	B-airline_code	
 O	O	
 O	O	
 O	O	
@@ -2543,8 +2543,8 @@ B-fromloc.city_name	B-fromloc.city_name
 O	O	
 B-toloc.city_name	B-toloc.city_name	
 I-toloc.city_name	B-cost_relative	
-O	B-fare_amount	
-O	I-fare_amount	
+I-toloc.city_name	B-fare_amount	
+I-toloc.city_name	I-fare_amount	
 O	O	
 O	O	
 O	O	
@@ -2565,7 +2565,7 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 
 
-atis_aircraft	atis_city,atis_day_name
+	atis_city,atis_day_name
 O	O	
 O	O	
 O	O	
@@ -2588,14 +2588,14 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
-O	O	
-B-toloc.city_name	B-toloc.city_name	
+O	I-fromloc.city_name	
+B-toloc.city_name	O	
+I-toloc.city_name	B-toloc.city_name	
 O	O	
 O	O	
 
 
-	atis_capacity,atis_flight_time,atis_meal
+atis_city	atis_capacity,atis_flight_time,atis_meal
 O	O	
 O	O	
 O	O	
@@ -2625,7 +2625,7 @@ B-city_name	B-airline_name
 I-city_name	I-airline_name	
 
 
-	atis_capacity,atis_city,atis_flight_time
+atis_city	atis_capacity,atis_city,atis_flight_time
 O	O	
 O	O	
 O	O	
@@ -2633,7 +2633,7 @@ O	O
 O	O	
 O	B-aircraft_code	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 O	O	
 O	O	
@@ -2695,8 +2695,8 @@ B-fromloc.city_name	O
 O	O	
 B-toloc.city_name	O	
 O	O	
-B-fromloc.city_name	B-depart_date.day_name	
-I-fromloc.city_name	B-depart_time.time_relative	
+O	B-depart_date.day_name	
+O	B-depart_time.time_relative	
 O	B-depart_time.time	
 B-fromloc.city_name	I-depart_time.time	
 O	O	
@@ -2765,7 +2765,7 @@ O	O
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-aircraft_code	
+B-city_name	B-aircraft_code	
 O	O	
 O	O	
 O	O	
@@ -2773,9 +2773,9 @@ O	O
 O	O	
 O	O	
 O	O	
-B-fromloc.city_name	B-transport_type	
+O	B-transport_type	
 O	O	
-B-toloc.city_name	B-city_name	
+B-fromloc.city_name	B-city_name	
 
 
 atis_quantity	atis_aircraft,atis_quantity
@@ -2797,9 +2797,9 @@ O	O
 O	B-aircraft_code	
 
 
-atis_restriction	atis_city,atis_meal
+atis_meal	atis_city,atis_meal
 O	O	
-B-city_name	B-city_name	
+O	B-city_name	
 O	O	
 O	O	
 O	O	
@@ -2816,7 +2816,7 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 
 
-	atis_flight_no
+atis_flight_no	atis_flight_no
 O	O	
 O	O	
 O	O	
@@ -2833,7 +2833,7 @@ I-toloc.city_name	O
 I-toloc.city_name	B-toloc.city_name	
 
 
-atis_capacity,atis_quantity	atis_airport,atis_quantity
+atis_airport,atis_quantity	atis_airport,atis_quantity
 O	O	
 O	O	
 O	O	
@@ -2850,7 +2850,7 @@ O	O
 O	B-aircraft_code	
 
 
-	atis_airfare
+atis_flight_no	atis_airfare
 O	O	
 O	O	
 O	O	
@@ -2890,12 +2890,12 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 O	O	
 O	O	
-B-airline_name	B-depart_time.time_relative	
-I-airline_name	B-depart_time.period_of_day	
+B-fromloc.city_name	B-depart_time.time_relative	
+I-fromloc.city_name	B-depart_time.period_of_day	
 O	O	
 O	B-depart_time.time_relative	
 O	B-depart_time.time	
-B-airline_name	I-depart_time.time	
+O	I-depart_time.time	
 O	O	
 O	B-depart_date.day_name	
 O	B-depart_date.month_name	
@@ -2920,7 +2920,7 @@ B-airline_name	B-airline_name
 I-airline_name	I-airline_name	
 
 
-	atis_capacity,atis_distance,atis_meal
+atis_ground_fare	atis_capacity,atis_distance,atis_meal
 O	O	
 O	O	
 O	O	
@@ -2935,14 +2935,14 @@ O	O
 O	O	
 O	O	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
 I-fromloc.city_name	I-fromloc.airport_name	
-O	I-fromloc.airport_name	
+I-fromloc.airport_name	I-fromloc.airport_name	
 O	O	
-O	O	
-B-toloc.city_name	B-city_name	
+B-toloc.city_name	O	
+I-toloc.city_name	B-city_name	
 O	O	
 O	O	
 O	O	
@@ -2963,7 +2963,7 @@ B-fromloc.city_name	B-arrive_time.time
 I-fromloc.city_name	I-arrive_time.time	
 
 
-	atis_airfare,atis_day_name,atis_ground_service
+atis_flight,atis_flight_no	atis_airfare,atis_day_name,atis_ground_service
 O	O	
 O	O	
 O	O	
@@ -2986,9 +2986,9 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
-I-fromloc.city_name	I-fromloc.city_name	
-O	O	
-B-toloc.city_name	B-toloc.city_name	
+O	I-fromloc.city_name	
+B-toloc.city_name	O	
+I-toloc.city_name	B-toloc.city_name	
 O	O	
 O	O	
 O	O	
@@ -3001,7 +3001,7 @@ O	O
 O	O	
 O	O	
 B-fromloc.city_name	B-airport_name	
-I-fromloc.city_name	I-airport_name	
+O	I-airport_name	
 
 
 atis_flight_no	atis_airfare,atis_capacity,atis_flight
@@ -3031,7 +3031,7 @@ O	O
 O	O	
 O	B-airline_name	
 O	O	
-O	B-flight_number	
+B-fromloc.city_name	B-flight_number	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
 I-fromloc.city_name	I-fromloc.city_name	
@@ -3040,7 +3040,7 @@ B-toloc.city_name	B-toloc.city_name
 I-toloc.city_name	I-toloc.city_name	
 
 
-atis_ground_fare	atis_abbreviation,atis_capacity,atis_meal
+atis_city,atis_ground_fare	atis_abbreviation,atis_capacity,atis_meal
 O	O	
 O	O	
 O	O	
@@ -3065,17 +3065,17 @@ O	O
 B-city_name	B-airline_code	
 O	B-flight_number	
 O	O	
+B-city_name	O	
 O	O	
 O	O	
-O	O	
-O	B-toloc.city_name	
-B-fromloc.city_name	I-toloc.city_name	
+B-fromloc.city_name	B-toloc.city_name	
+I-fromloc.city_name	I-toloc.city_name	
 O	O	
 B-fromloc.city_name	B-arrive_time.time	
 I-fromloc.city_name	I-arrive_time.time	
 
 
-atis_airport,atis_ground_fare	atis_aircraft,atis_distance,atis_ground_fare
+atis_ground_fare	atis_aircraft,atis_distance,atis_ground_fare
 O	O	
 O	O	
 O	O	
@@ -3092,7 +3092,7 @@ O	I-city_name
 O	B-airport_name	
 O	I-airport_name	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 O	O	
 O	O	
@@ -3114,14 +3114,14 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-city_name	
-O	I-city_name	
-B-fromloc.city_name	I-city_name	
-O	O	
-O	O	
-O	O	
+B-city_name	B-city_name	
+I-fromloc.airport_name	I-city_name	
+I-fromloc.airport_name	I-city_name	
+I-fromloc.airport_name	O	
 O	O	
 B-toloc.city_name	O	
+O	O	
+O	O	
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
@@ -3129,8 +3129,8 @@ O	O
 O	B-airline_name	
 O	I-airline_name	
 O	O	
-O	B-class_type	
-B-fromloc.city_name	I-class_type	
+B-airline_name	B-class_type	
+I-airline_name	I-class_type	
 
 
 atis_aircraft	atis_flight,atis_meal
@@ -3160,7 +3160,7 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 
 
-atis_airport,atis_capacity,atis_ground_service,atis_quantity	atis_aircraft,atis_ground_service
+atis_airport,atis_capacity,atis_quantity	atis_aircraft,atis_ground_service
 O	O	
 O	O	
 O	B-city_name	
@@ -3232,7 +3232,7 @@ O	O
 B-toloc.city_name	B-toloc.city_name	
 
 
-atis_aircraft	atis_airline,atis_flight_time
+	atis_airline,atis_flight_time
 O	O	
 O	O	
 O	O	
@@ -3273,7 +3273,7 @@ O	I-airline_name
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-airline_name	B-aircraft_code	
 
 
 atis_distance	atis_distance
@@ -3281,10 +3281,10 @@ O	O
 O	O	
 O	O	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 B-fromloc.city_name	B-fromloc.airport_name	
-I-fromloc.city_name	I-fromloc.airport_name	
+I-fromloc.airport_name	I-fromloc.airport_name	
 O	O	
 B-toloc.city_name	O	
 I-toloc.city_name	B-city_name	
@@ -3300,8 +3300,8 @@ O	O
 O	B-airline_name	
 O	I-airline_name	
 O	O	
-O	B-class_type	
-B-fromloc.city_name	I-class_type	
+B-airline_name	B-class_type	
+I-airline_name	I-class_type	
 
 
 	atis_airline
@@ -3313,7 +3313,7 @@ O	O
 O	O	
 B-fromloc.city_name	O	
 O	O	
-B-fromloc.city_name	B-city_name	
+B-toloc.city_name	B-city_name	
 
 
 	atis_flight,atis_meal
@@ -3339,7 +3339,7 @@ O	O
 B-city_name	B-airline_code	
 O	B-flight_number	
 O	O	
-O	O	
+B-city_name	O	
 O	O	
 O	O	
 B-fromloc.city_name	B-toloc.city_name	
@@ -3358,7 +3358,7 @@ B-fromloc.city_name	B-fare_basis_code
 O	O	
 O	O	
 O	O	
-B-toloc.city_name	O	
+O	O	
 O	O	
 O	O	
 B-fromloc.city_name	B-fromloc.city_name	
@@ -3392,7 +3392,7 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-transport_type	
+B-city_name	B-transport_type	
 O	O	
 O	O	
 O	B-city_name	
@@ -3416,15 +3416,15 @@ O	B-meal
 O	O	
 O	O	
 O	O	
-B-airline_name	B-airline_name	
-I-airline_name	I-airline_name	
+B-city_name	B-airline_name	
+I-city_name	I-airline_name	
 
 
 	atis_abbreviation,atis_ground_fare
 O	O	
 O	O	
 O	O	
-B-city_name	B-airline_code	
+O	B-airline_code	
 O	O	
 O	O	
 O	O	
@@ -3439,7 +3439,7 @@ O	I-city_name
 B-fromloc.city_name	I-city_name	
 
 
-	atis_airline,atis_capacity
+atis_abbreviation	atis_airline,atis_capacity
 O	O	
 O	O	
 O	O	
@@ -3456,7 +3456,7 @@ O	O
 B-city_name	B-aircraft_code	
 
 
-atis_airport	atis_capacity
+atis_ground_fare	atis_capacity
 O	O	
 O	O	
 O	O	
@@ -3467,7 +3467,7 @@ O	O
 B-city_name	B-aircraft_code	
 
 
-atis_airport,atis_capacity	atis_capacity
+	atis_capacity
 O	O	
 O	O	
 O	O	
@@ -3475,6 +3475,6 @@ O	O
 O	O	
 O	O	
 O	O	
-O	B-aircraft_code	
+B-city_name	B-aircraft_code	
 
 
