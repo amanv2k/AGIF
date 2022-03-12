@@ -26,6 +26,10 @@ def priority():
                         fp.write(intent + '\n')
                         break
 
+
+
+
+
     for lst in lines:
         temp = []
         for i in range(len(lst)):
@@ -35,3 +39,15 @@ def priority():
                     break
             temp.sort()
         printing(temp)
+
+
+
+
+
+
+
+
+
+
+
+

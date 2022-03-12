@@ -211,7 +211,6 @@ class Processor(object):
         """
         validation will write mistaken samples to files and make scores.
         """
-
         if args.gpu:
             model = torch.load(model_path)
         else:

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-#
-
+import os
 import math
 import torch
 import torch.nn as nn
@@ -9,6 +9,10 @@ from torch.nn.utils.rnn import pad_packed_sequence
 from torch.nn.parameter import Parameter
 import numpy as np
 from utils.process import normalize_adj
+import tflearn
+from tflearn import fully_connected
+import tensorflow as tf
+import warnings
 
 
 class GraphAttentionLayer(nn.Module):
@@ -31,6 +35,8 @@ class GraphAttentionLayer(nn.Module):
 
         self.leakyrelu = nn.LeakyReLU(self.alpha)
 
+
+
     def forward(self, input, adj):
         h = torch.matmul(input, self.W)
         B, N = h.size()[0], h.size()[1]
@@ -52,6 +58,10 @@ class GraphAttentionLayer(nn.Module):
 
     def __repr__(self):
         return self.__class__.__name__ + ' (' + str(self.in_features) + ' -> ' + str(self.out_features) + ')'
+
+    warnings.simplefilter("ignore")
+
+
 
 
 class GAT(nn.Module):
@@ -89,6 +99,8 @@ class GAT(nn.Module):
         x = F.elu(self.out_att(x, adj))
         return x + input
 
+    warnings.simplefilter("ignore")
+
 
 class Encoder(nn.Module):
     def __init__(self, args):
@@ -123,16 +135,19 @@ class Encoder(nn.Module):
         c = self.__sentattention(hiddens, seq_lens)
         return hiddens, c
 
+    warnings.simplefilter("ignore")
+
 
 class ModelManager(nn.Module):
 
-    def __init__(self, args, num_word, num_slot, num_intent):
+    def __init__(self, args, num_word, num_slot, num_intent,save_dir):
         super(ModelManager, self).__init__()
 
         self.__num_word = num_word
         self.__num_slot = num_slot
         self.__num_intent = num_intent
         self.__args = args
+        self.__save_dir = save_dir
 
         # Initialize an embedding object.
         self.__embedding = nn.Embedding(
@@ -161,25 +176,13 @@ class ModelManager(nn.Module):
             self.__num_slot, self.__args.dropout_rate,
             embedding_dim=self.__args.slot_embedding_dim)
 
-    def show_summary(self):
-        """
-        print the abstract of the defined model.
-        """
+    warnings.simplefilter("ignore")
 
-        print('Model parameters are listed as follows:\n')
 
-        print('\tnumber of word:                            {};'.format(self.__num_word))
-        print('\tnumber of slot:                            {};'.format(self.__num_slot))
-        print('\tnumber of intent:						    {};'.format(self.__num_intent))
-        print('\tword embedding dimension:				    {};'.format(self.__args.word_embedding_dim))
-        print('\tencoder hidden dimension:				    {};'.format(self.__args.encoder_hidden_dim))
-        print('\tdimension of intent embedding:		    	{};'.format(self.__args.intent_embedding_dim))
-        print('\tdimension of slot embedding:			    {};'.format(self.__args.slot_embedding_dim))
-        print('\tdimension of slot decoder hidden:  	    {};'.format(self.__args.slot_decoder_hidden_dim))
-        print('\thidden dimension of self-attention:        {};'.format(self.__args.attention_hidden_dim))
-        print('\toutput dimension of self-attention:        {};'.format(self.__args.attention_output_dim))
 
-        print('\nEnd of parameters show. Now training begins.\n\n')
+    @property
+    def save_dir(self):
+        return self.__args.save_dir
 
     def generate_adj_gat(self, index, batch):
         intent_idx_ = [[torch.tensor(0)] for i in range(batch)]
@@ -199,9 +202,19 @@ class ModelManager(nn.Module):
     def forward(self, text, seq_lens, n_predicts=None, forced_slot=None, forced_intent=None):
         word_tensor = self.__embedding(text)
         g_hiddens, g_c = self.G_encoder(word_tensor, seq_lens)
+
         pred_intent = self.__intent_decoder(g_c)
+
         intent_index = (torch.sigmoid(pred_intent) > self.__args.threshold).nonzero()
+
+
+        intent_index_1 = np.array2string(intent_index.cpu().detach().numpy())
+
+        with open("intent_index.txt", 'a', encoding="utf8") as fw:
+            fw.write(intent_index_1)
+
         adj = self.generate_adj_gat(intent_index, len(pred_intent))
+
 
         pred_slot = self.__slot_decoder(
             g_hiddens, seq_lens,
@@ -214,7 +227,15 @@ class ModelManager(nn.Module):
             return F.log_softmax(pred_slot, dim=1), pred_intent
         else:
             _, slot_index = pred_slot.topk(n_predicts, dim=1)
-            intent_index = (torch.sigmoid(pred_intent) > self.__args.threshold).nonzero()
+            intent_index = (torch.sigmoid(pred_intent) > self.__args.threshold).nonzero() #We get intent index.
+
+            prob = torch.sigmoid(pred_intent)
+            x = np.array2string(prob.cpu().detach().numpy())
+
+
+            with open("Intent_prob.txt", 'a', encoding="utf8") as fw:
+                fw.write(x)
+
 
             return slot_index.cpu().data.numpy().tolist(), intent_index.cpu().data.numpy().tolist()
 
@@ -377,6 +398,7 @@ class LSTMDecoder(nn.Module):
                 else:
                     lstm_out, (last_h, last_c) = self.__lstm_layer(dropout_input, (last_h, last_c))
 
+
                 if adj is not None:
                     lstm_out = torch.cat((lstm_out,
                                           intent_embedding.unsqueeze(0).repeat(len(lstm_out), 1, 1)), dim=1)
@@ -389,6 +411,7 @@ class LSTMDecoder(nn.Module):
                 prev_tensor = self.__embedding_layer(index.squeeze(1)).unsqueeze(1)
             output_tensor = torch.stack(output_tensor_list)
             output_tensor_list = [output_tensor[:length, i] for i, length in enumerate(seq_lens)]
+
 
         return torch.cat(output_tensor_list, dim=0)
 
@@ -437,6 +460,7 @@ class QKVAttention(nn.Module):
             linear_query,
             linear_key.transpose(-2, -1)
         ), dim=-1) / math.sqrt(self.__hidden_dim)
+
         forced_tensor = torch.matmul(score_tensor, linear_value)
         forced_tensor = self.__dropout_layer(forced_tensor)
 
@@ -489,5 +513,6 @@ class UnflatSelfAttention(nn.Module):
             if l < max_len:
                 scores.data[i, l:] = -np.inf
         scores = F.softmax(scores, dim=1)
+
         context = scores.unsqueeze(2).expand_as(inp).mul(inp).sum(1)
         return context

@@ -69,4 +69,3 @@ I-album	67
 I-facility	68
 I-object_part_of_series_type	69
 I-music_item	70
-I-object_select	71

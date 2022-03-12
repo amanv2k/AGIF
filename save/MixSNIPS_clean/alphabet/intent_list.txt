@@ -1,7 +1,7 @@
-BookRestaurant	11644
-SearchCreativeWork	11598
-SearchScreeningEvent	11553
-RateBook	11445
-AddToPlaylist	11430
-PlayMusic	11310
-GetWeather	11295
+PlayMusic	425
+AddToPlaylist	414
+RateBook	411
+SearchCreativeWork	401
+GetWeather	392
+BookRestaurant	391
+SearchScreeningEvent	373

@@ -47,7 +47,7 @@ if __name__ == "__main__":
         args, len(dataset.word_alphabet),
         len(dataset.slot_alphabet),
         len(dataset.intent_alphabet),
-        # args.save_dir
+        args.save_dir
     )
 
     # To train and evaluate the models.
