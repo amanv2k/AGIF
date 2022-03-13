@@ -1,16 +1,10 @@
-get
-the
-fare
-of
-flight
-from
-texas
-to
-washington
-and
-get
-the
-capacity
-of
-the
-flight
+how O
+many O
+seats O
+in O
+the O
+flight O
+from O
+texas O
+to O
+washinton O

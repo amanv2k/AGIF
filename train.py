@@ -10,7 +10,7 @@ from utils.config import *
 from priority import priority
 
 if __name__ == "__main__":
-
+    print(args)
     # Save training and model parameters.
     if not os.path.exists(args.save_dir):
         os.system("mkdir -p " + args.save_dir)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         qry=re.findall(r"[A-Za-z]+|\S", q)
         f = open(os.path.join(args.data_dir, "userinput.txt"), "w")
         for word in qry:
-            f.write(word+'\n')
+            f.write(word+' O\n')
         f.close()
 
         getinput=input("choice: ")

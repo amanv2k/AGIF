@@ -177,13 +177,13 @@ class Processor(object):
         if if_dev:
             ss, pred_slot, real_slot, pred_intent, real_intent = self.prediction(
                 self.__model, self.__dataset, "dev", test_batch, args)
-            ss, pred_slot, pred_intent = self.predict(
-                self.__model, self.__dataset, "dev", test_batch, args)
+            # ss, pred_slot, pred_intent = self.predict(
+            #     self.__model, self.__dataset, "dev", test_batch, args)
         else:
             ss, pred_slot, real_slot, pred_intent, real_intent = self.prediction(
                 self.__model, self.__dataset, "test", test_batch, args)
-            ss, pred_slot, pred_intent = self.predict(
-                self.__model, self.__dataset, "test", test_batch, args)
+            # ss, pred_slot, pred_intent = self.predict(
+            #     self.__model, self.__dataset, "test", test_batch, args)
 
         with open('intents', 'wb') as fp:
             pickle.dump(pred_intent, fp)
@@ -315,7 +315,7 @@ class Processor(object):
             dataloader = dataset.batch_delivery('userinput', batch_size=batch_size, shuffle=False, is_digital=False)
         else:
             raise Exception("Argument error! mode belongs to {\"dev\", \"test\"}.")
-
+        # print(dataloader)
         pred_slot = []
         pred_intent = []
         all_token = []
@@ -347,8 +347,10 @@ class Processor(object):
                 for c, sl in zip(line, slots):
                     writer.writelines(
                         " " + c + " " + sl + " " + "\n")
+                    print("word="+c+"intent/slot="+sl)
                 idx = idx + len(line)
                 writer.writelines("\n")
+            print(all_token," ",pred_slot," ",pred_intent)
 
         return all_token, pred_slot, pred_intent
 
